@@ -4,6 +4,7 @@ import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
+    <BrowserRouter>
     <div>
       <Header/>
       
@@ -15,6 +16,7 @@ function App() {
 
     <Footer/>
     </div>
+    </BrowserRouter>
     
 
   );
