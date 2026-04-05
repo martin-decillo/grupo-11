@@ -1,13 +1,19 @@
-
+import Footer from "./componentes/Footer/footer";
+import Header from "./componentes/Header/header";
+import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <h1>Hola</h1>
+      <Header/>
+      
 
 
 
 
+
+
+    <Footer/>
     </div>
     
 
