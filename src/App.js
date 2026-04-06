@@ -1,6 +1,6 @@
-import Footer from "./componentes/Footer/footer";
-import Header from "./componentes/Header/header";
-import Formulario from "./componentes/Formulario/formulario";
+import Footer from "./componentes/Footer/Footer";
+import Header from "./componentes/Header/Header";
+import Formulario from "./componentes/Formulario/Formulario";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 
 function App() {
