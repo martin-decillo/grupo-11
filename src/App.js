@@ -5,10 +5,10 @@ import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
     <div>
       <Header/>
-      <formulario/>
+      <Formulario/>
       
       
 

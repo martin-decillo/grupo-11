@@ -34,4 +34,4 @@ class Formulario extends Component{
     }
 }
 
-export default withRouter(Formulario)
+export default withRouter(Formulario);
