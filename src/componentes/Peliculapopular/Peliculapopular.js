@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
-class Pelicula extends Component {
+class Peliculapopular extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -13,8 +13,8 @@ class Pelicula extends Component {
             <div className="Pelicula">
                 <article className="Peliculas-card">
                     <img src = {this.props.img}/>
-                    <h2>{this.props.name}</h2>
-                    <p>{this.props.descripcion}</p>
+                    <h2>{this.props.title}</h2>
+                    <p>{this.props.language}</p>
                     <button>Ver descripcion</button>
 
 
@@ -27,3 +27,6 @@ class Pelicula extends Component {
 
 
 }
+
+
+export default Peliculapopular;
