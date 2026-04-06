@@ -8,6 +8,15 @@ class Peliculapopular extends Component {
             verdescripcion : false
         }
     }
+
+    //cambio de estado
+    cambiarEstado = () => {
+        this.setState({
+             verdescripcion: !this.state.verdescripcion
+        });
+    }
+
+
     render(){
         return(
             <div className="Pelicula">

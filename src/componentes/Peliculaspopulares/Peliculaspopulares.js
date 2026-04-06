@@ -9,7 +9,7 @@ class Peliculaspopulares extends Component{
         }
     }
     componentDidMount(){
-        fetch("https://api.themoviedb.org/3/movie/popular")
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=830571fa1c832cffccac2021413e6933&language=es-ES")
         .then(response => response.json())
         .then(data => this.setState(
             {datos: data.results ? data.results : []}))
