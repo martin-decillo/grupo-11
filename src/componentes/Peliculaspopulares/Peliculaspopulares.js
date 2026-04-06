@@ -23,9 +23,9 @@ class Peliculaspopulares extends Component{
                         <Peliculapopular
                         key = {elemento.title + idx}
                         title = {elemento.title}
-                        language = {elemento.language}
+                        language = {elemento.original_language}
                         adult = {elemento.adult}
-                        img = {elemento.backdrop_path}
+                        img = {`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
                         id = {elemento.id}
                         />
                          )

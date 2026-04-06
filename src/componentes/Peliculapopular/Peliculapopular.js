@@ -23,7 +23,7 @@ class Peliculapopular extends Component {
                 <article className="Peliculas-card">
                     <img src = {this.props.img}/>
                     <h2>{this.props.title}</h2>
-                    <p>{this.props.language}</p>
+                    <p>Idioma: {this.props.language}</p>
                     <button>Ver descripcion</button>
 
 
