@@ -27,6 +27,7 @@ class Peliculaspopulares extends Component{
                         adult = {elemento.adult}
                         img = {`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
                         id = {elemento.id}
+                        descripcion = {elemento.overview}
                         />
                          )
                 }

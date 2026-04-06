@@ -23,8 +23,15 @@ class Peliculapopular extends Component {
                 <article className="Peliculas-card">
                     <img src = {this.props.img}/>
                     <h2>{this.props.title}</h2>
-                    <p>Idioma: {this.props.language}</p>
-                    <button>Ver descripcion</button>
+                    <div>
+                        {this.state.verdescripcion && <p>{this.props.descripcion} 
+                            Idioma: {this.props.language}</p>}
+                     </div>
+                      <button onClick={() => this.cambiarEstado()}> 
+                        {this.state.verdescripcion ? "- info" : "+ info"}
+                      </button>
+
+                    
 
 
 
