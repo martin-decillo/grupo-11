@@ -4,10 +4,11 @@ import React from "react";
 
 function Home() {
   return (
-   <>
+   <div clasName = "Home">
    <Formulario/>
    <Peliculaspopulares/>
-   </>  
+   </div>
+     
   );
 }
 
