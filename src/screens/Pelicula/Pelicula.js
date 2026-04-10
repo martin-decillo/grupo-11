@@ -20,26 +20,6 @@ class Pelicula extends Component{
         . catch(error => console.log(error))
     }
     render(){
-        return(
-            <div className="+pelicula">
-                {
-                    this.state.pelicula === ""
-                    ? <img src="https://i.gifter.com/ZZ5H.gif" alt="loader"/>
-                    : null
-                }
-                {
-                    this.state.Pelicula !==""
-                    ? (
-                    
-
-
-
-
-
-                    )
-                }
-                }
-                }
-            </div>
-        )
+        return()
     }
+}
