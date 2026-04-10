@@ -30,12 +30,9 @@ class Peliculapopular extends Component {
                       <button onClick={() => this.cambiarEstado()}> 
                         {this.state.verdescripcion ? "- info" : "+ info"}
                       </button>
-
-                    
-
-
-
-
+                      <Link to={`/pelicula/${this.props.id}`}>
+                        <button>Ir a detalle</button>
+                    </Link>
                 </article>
             </div>
         )

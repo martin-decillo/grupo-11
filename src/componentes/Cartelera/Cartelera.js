@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Peliculapopular from "../Peliculapopular/Peliculapopular";
+import {Link} from "react-router-dom";
 
 //doy estado al componente
 class Cartelera extends Component{
@@ -36,7 +37,8 @@ render(){
                         descripcion = {elemento.overview}
                         />
                          )
-                }
+                        }
+                
             </div>
     )
 
