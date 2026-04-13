@@ -4,10 +4,10 @@ function Footer(){
     return(
         <footer>
         <p>Copyright © Dashboard 2026</p>
-        <h7>Beltran Symonds Dagnino, 
+        <h6>Beltran Symonds Dagnino, 
             Martin Decillo, 
             Mateo Cespedes
-        </h7>
+        </h6>
     </footer>
     );
 
