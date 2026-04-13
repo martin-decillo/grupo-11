@@ -8,12 +8,10 @@ class Formulario extends Component{
             value : ""
 
         }
-    }
+    }   
     enviarFormulario(event){
         event.preventDefault()
         this.props.history.push("/resultado/"+this.state.value)
-
-
     }
     controlarCambios(event){
         this.setState({
