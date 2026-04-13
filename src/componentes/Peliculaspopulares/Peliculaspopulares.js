@@ -19,7 +19,7 @@ class Peliculaspopulares extends Component{
         return(
             <div className = "Peliculaspopulares">
                 {
-                    this.state.datos.length === 0 ?  <h1> Cargando...</h1>: this.state.datos.map((elemento, idx)=>
+                    this.state.datos.length === 0 ?  <h1> Cargando...</h1>: this.state.datos.map((elemento, idx)=> idx<4 && (
                         <Peliculapopular
                         key = {elemento.title + idx}
                         title = {elemento.title}
@@ -30,6 +30,7 @@ class Peliculaspopulares extends Component{
                         descripcion = {elemento.overview}
                         />
                          )
+                     )
                 }
             </div>
         )

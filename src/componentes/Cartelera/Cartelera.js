@@ -24,9 +24,10 @@ componentDidMount(){
 render(){
     return(
     <div className = "Cartelera">
+        <h2>Peliculas mejor valoradas</h2>
                 {
                     
-                    this.state.datos.length === 0 ?  <h1> Cargando...</h1>: this.state.datos.map((elemento, idx)=>
+                    this.state.datos.length === 0 ?  <h1> Cargando...</h1>: this.state.datos.map((elemento, idx)=> idx < 4 && (
                         <Peliculapopular
                         key = {elemento.title + idx}
                         title = {elemento.title}
@@ -36,6 +37,7 @@ render(){
                         id = {elemento.id}
                         descripcion = {elemento.overview}
                         />
+                         )
                          )
                         }
                 
