@@ -1,14 +1,13 @@
-import React from "react";
+import React, {Component} from "react";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies()
-class Register extends component{
+class Register extends Component{
     constructor(props){
         super(props)
         this.state = ""
     }
-
-
+    
     }
 
 

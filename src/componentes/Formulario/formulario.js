@@ -19,7 +19,6 @@ class Formulario extends Component{
         })
 
     }
-
     render() {
         return(
             <form onSubmit = {(event => this.enviarFormulario(event))}>
