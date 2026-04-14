@@ -6,6 +6,8 @@ import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 import Register from "./screens/Registro/Registro";
 import Loginscreen from "./screens/Loginscreen/Loginscreen";
 import Toprated from "./screens/Toprated/Toprated";
+import Todaspopulareas from "./screens/Todaspopulares/Todaspopulares";
+import Todaspopulares from "./screens/Todaspopulares/Todaspopulares";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/Registro" component ={Register}/>
         <Route path="/Loginscreen" component = {Loginscreen}/>
         <Route path="/Toprated" component = {Toprated}/>
+        <Route path="/Todaspopulares" component = {Todaspopulares}/>
+
 
       </Switch>
       <Footer/>

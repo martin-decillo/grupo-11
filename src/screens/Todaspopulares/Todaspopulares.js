@@ -1,10 +1,8 @@
-import React, {Component} from "react";
-import Peliculapopular from "../Peliculapopular/Peliculapopular";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import Peliculapopular from "../../componentes/Peliculapopular/Peliculapopular";
 import { withRouter } from "react-router-dom";
 
-
-class Peliculaspopulares extends Component{
+class Todaspopulares extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -21,12 +19,10 @@ class Peliculaspopulares extends Component{
     render(){
         return(
             <div className = "Peliculaspopulares">
-                <h3>Peliculas populares</h3>   
-                    <Link to={`/Todaspopulares`}><button>Ver todas</button></Link>
+                
                 {
                     this.state.datos.length === 0 ?  <h1> Cargando...</h1>:
                       this.state.datos
-                        .filter((elemento, idx) => idx < 4)
                         .map((elemento, idx) => (
                         <Peliculapopular
                         key = {elemento.title + idx}
@@ -45,4 +41,5 @@ class Peliculaspopulares extends Component{
 
     }
 }
-export default withRouter(Peliculaspopulares)
+
+export default withRouter(Todaspopulares)
