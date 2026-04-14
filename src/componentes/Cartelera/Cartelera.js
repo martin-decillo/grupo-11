@@ -23,11 +23,13 @@ componentDidMount(){
 
 render(){
     return(
-    <div className = "Cartelera">
-        <h2>Peliculas mejor valoradas</h2>
+    <div className = "Peliculaspopulares">
                 {
                     
-                    this.state.datos.length === 0 ?  <h1> Cargando...</h1>: this.state.datos.map((elemento, idx)=> idx < 4 && (
+                    this.state.datos.length === 0 ?  <h1> Cargando...</h1>:
+                      this.state.datos
+                        .filter((elemento, idx) => idx < 4)
+                        .map((elemento, idx) => (
                         <Peliculapopular
                         key = {elemento.title + idx}
                         title = {elemento.title}
