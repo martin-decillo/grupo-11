@@ -5,6 +5,7 @@ import Pelicula from "./screens/Pelicula/Pelicula";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 import Register from "./screens/Registro/Registro";
 import Loginscreen from "./screens/Loginscreen/Loginscreen";
+import Toprated from "./screens/Toprated/Toprated";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/pelicula/:id" component ={Pelicula}/>
         <Route path="/Registro" component ={Register}/>
         <Route path="/Loginscreen" component = {Loginscreen}/>
+        <Route path="/Toprated" component = {Toprated}/>
+
       </Switch>
       <Footer/>
     </div>
