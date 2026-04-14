@@ -4,6 +4,7 @@ import Home from "./screens/Home/Home";
 import Pelicula from "./screens/Pelicula/Pelicula";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
 import Register from "./screens/Registro/Registro";
+import Loginscreen from "./screens/Loginscreen/Loginscreen";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" exact={true} component ={Home}/>
         <Route path="/pelicula/:id" component ={Pelicula}/>
         <Route path="/Registro" component ={Register}/>
+        <Route path="/Loginscreen" component = {Loginscreen}/>
       </Switch>
       <Footer/>
     </div>

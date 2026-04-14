@@ -9,8 +9,8 @@ function Header(){
             <li><Link to="/">Home</Link></li>
             {!existeSession ? (
                 <>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/crearcuenta">Crear Cuenta</Link></li>
+                <li><Link to="/Loginscreen">Login</Link></li>
+                <li><Link to="/registro">Crear Cuenta</Link></li>
                 </>
             ) : (
                 <li><Link to="/favoritos">Favoritos</Link></li>
@@ -18,7 +18,7 @@ function Header(){
         </ul>
 
         <ul className="user">
-            <li>Nombre usuario <img src="./img/imagenes/7.jpeg" alt=""/></li>
+            <li>poner el nombre del usuario<img src="./img/imagenes/7.jpeg" alt=""/></li>
         </ul>
     </nav>
     );

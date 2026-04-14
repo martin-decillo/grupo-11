@@ -10,7 +10,8 @@ class Formregister extends Component {
 
         this.state = {
             nombre: datosParseados ? datosParseados.nombre : "",
-            gmail: datosParseados ? datosParseados.gmail : ""
+            gmail: datosParseados ? datosParseados.gmail : "",
+            contraseña: datosParseados ? datosParseados.Contraseña : ""
         };
     }
 
@@ -19,7 +20,8 @@ class Formregister extends Component {
 
         let usuario = {
             nombre: this.state.nombre,
-            gmail: this.state.gmail
+            gmail: this.state.gmail,
+            contraseña: this.state.contraseña
         };
 
         localStorage.setItem("usuario", JSON.stringify(usuario));
@@ -49,6 +51,13 @@ class Formregister extends Component {
                     name="gmail"
                     value={this.state.gmail}
                     placeholder="Gmail"
+                    onChange={(event) => this.controlarCambios(event)}
+                />
+                <input
+                    type="contraseña"
+                    name="contraseña"
+                    value={this.state.contraseña}
+                    placeholder="contraseña"
                     onChange={(event) => this.controlarCambios(event)}
                 />
 
