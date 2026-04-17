@@ -60,7 +60,7 @@ class Toprated extends Component{
                 }
 
                         <button onClick={this.cargarMas}>Cargar más</button>
-                  
+
                 <Footer/>
             </div>
         )

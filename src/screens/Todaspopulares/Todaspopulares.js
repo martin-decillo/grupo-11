@@ -8,14 +8,30 @@ class Todaspopulares extends Component{
     constructor(props){
         super(props);
         this.state = {
-            datos: []
+            datos: [],
+            pag: 1
         }
     }
+
     componentDidMount(){
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=830571fa1c832cffccac2021413e6933&language=es-ES")
         .then(response => response.json())
         .then(data => this.setState(
             {datos: data.results ? data.results : []}))
+        .catch(error => console.log(error));
+    }
+
+    cargarMas = () => {
+        
+        let numPagina = this.state.pag + 1;
+               fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=830571fa1c832cffccac2021413e6933&language=es-ES&page=${numPagina}`)
+        .then(response => response.json())
+        .then(data => {
+            let resultadosNuevos = this.state.datos.concat(data.results);
+            this.setState(
+                {datos: resultadosNuevos, pag: numPagina}
+            )
+        })
         .catch(error => console.log(error));
     }
     render(){
@@ -39,6 +55,8 @@ class Todaspopulares extends Component{
                          )
                      )
                 }
+                 <button onClick={this.cargarMas}>Cargar más</button>
+
                 <Footer/>
             </div>
         )

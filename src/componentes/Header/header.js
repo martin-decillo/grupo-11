@@ -18,13 +18,11 @@ function Header(){
                 <li><Link to="/registro">Crear Cuenta</Link></li>
                 </>
             ) : (
-                <li>{cookies.get("usuario")}<Link to="/favoritos">Favoritos</Link></li>
+                <li>{}<Link to="/favoritos">Favoritos</Link></li>
             )}
         </ul>
 
-        <ul className="user">
-            <li>{this.usuario.gmail}<img src="./img/imagenes/7.jpeg" alt=""/></li>
-        </ul>
+        
     </nav>
     );
 
