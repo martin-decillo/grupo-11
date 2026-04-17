@@ -7,6 +7,8 @@ function Header(){
         <nav>
         <ul className="main-header">
             <li><Link to="/">Home</Link></li>
+            <Link to={`/Todaspopulares`}><button>Populares</button></Link>
+            <Link to={`/Toprated`}><button>Mejor valoradas</button></Link>
             {!existeSession ? (
                 <>
                 <li><Link to="/Loginscreen">Login</Link></li>
