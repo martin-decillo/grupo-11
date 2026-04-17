@@ -33,8 +33,10 @@ class Pelicula extends Component {
             <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.poster_path}`}/>
             <h1>{this.state.pelicula.original_title}</h1>
             <p>{this.state.pelicula.overview}</p>
-            <p>Duración: {this.state.pelicula.runtime} minutos</p>
-            <p>Calificación: {this.state.pelicula.vote_average}</p>
+            <p>duración: {this.state.pelicula.runtime} minutos</p>
+            <p>Fecha de estreno: {this.state.pelicula.release_date}</p>
+            <p>Género: {this.state.pelicula.genres.map(genre => genre.name).join(", ")}</p>
+            <p>calificacion: {this.state.pelicula.vote_average}</p>
           </div>
         )}
         <Footer/>
