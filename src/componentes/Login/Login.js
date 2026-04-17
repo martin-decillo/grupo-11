@@ -1,5 +1,8 @@
 import React, {Component} from "react";
 import { withRouter, Link } from "react-router-dom";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies()
 
 class Login extends Component{
     constructor(props){
@@ -29,6 +32,11 @@ enviarFormulario(event) {
         : this.setState({ error: true })
         : this.setState({ error: true })
         : this.setState({ error: true });
+
+if (!this.state.error){
+    cookies.set("usuario", this.state.gmail)
+    this.props.history.push("/")
+} 
 
         
 }
