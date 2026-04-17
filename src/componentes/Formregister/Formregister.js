@@ -26,7 +26,7 @@ class Formregister extends Component {
 
         localStorage.setItem("usuario", JSON.stringify(usuario));
 
-        this.props.history.push("/Registro");
+        this.props.history.push("/loginscreen");
     }
 
     controlarCambios(event){
