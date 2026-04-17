@@ -7,6 +7,7 @@ import Loginscreen from "./screens/Loginscreen/Loginscreen";
 import Toprated from "./screens/Toprated/Toprated";
 import Todaspopulareas from "./screens/Todaspopulares/Todaspopulares";
 import Todaspopulares from "./screens/Todaspopulares/Todaspopulares";
+import Notfound from "./screens/Notfound/Notfound";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Loginscreen" component = {Loginscreen}/>
         <Route path="/Toprated" component = {Toprated}/>
         <Route path="/Todaspopulares" component = {Todaspopulares}/>
+        <Route path="*" component={<Notfound/>} />
       </Switch>
     </div>
   );

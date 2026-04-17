@@ -10,8 +10,7 @@ function Notfound(Props){
 
 
 
-        404 NotFound
-
+              <h2 className="NotFound">Pagina no disponible - 404</h2>
 
         <Footer/>
         </div>
