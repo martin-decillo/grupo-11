@@ -1,8 +1,20 @@
 import React from "react";
+import Header from "../../componentes/Header/Header";
+import Footer from "../../componentes/Footer/Footer";
 
 function Notfound(Props){
     return(
-        <div>404 NotFound</div>
+        <div>
+        <Header/>
+
+
+
+
+        404 NotFound
+
+
+        <Footer/>
+        </div>
 
     )
 }

@@ -1,5 +1,4 @@
 import Footer from "./componentes/Footer/Footer";
-import Header from "./componentes/Header/Header";
 import Home from "./screens/Home/Home";
 import Pelicula from "./screens/Pelicula/Pelicula";
 import {BrowserRouter, Link, Switch, Route} from "react-router-dom";
@@ -12,7 +11,6 @@ import Todaspopulares from "./screens/Todaspopulares/Todaspopulares";
 function App() {
   return (
     <div>
-      <Header/>
       <Switch>
         <Route path="/" exact={true} component ={Home}/>
         <Route path="/pelicula/:id" component ={Pelicula}/>
@@ -20,10 +18,7 @@ function App() {
         <Route path="/Loginscreen" component = {Loginscreen}/>
         <Route path="/Toprated" component = {Toprated}/>
         <Route path="/Todaspopulares" component = {Todaspopulares}/>
-
-
       </Switch>
-      <Footer/>
     </div>
   );
 }

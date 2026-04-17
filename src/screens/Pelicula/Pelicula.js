@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Header from "../../componentes/Header/Header";
+import Footer from "../../componentes/Footer/Footer";
 
 class Pelicula extends Component {
   constructor(props){
@@ -23,6 +25,7 @@ class Pelicula extends Component {
   render(){
     return(
     <section>
+        <Header/>
         {this.state.pelicula === null ? (
           <h2>Cargando...</h2>
         ) : (
@@ -34,6 +37,7 @@ class Pelicula extends Component {
             <p>Calificación: {this.state.pelicula.vote_average}</p>
           </div>
         )}
+        <Footer/>
       </section>
     );
   }

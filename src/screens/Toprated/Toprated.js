@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Peliculapopular from "../../componentes/Peliculapopular/Peliculapopular";
 import { withRouter } from "react-router-dom";
+import Header from "../../componentes/Header/Header";
+import Footer from "../../componentes/Footer/Footer";
 
 class Toprated extends Component{
     constructor(props){
@@ -19,6 +21,7 @@ class Toprated extends Component{
     render(){
         return(
             <div className = "Peliculaspopulares">
+                <Header/>   
                 
                 {
                     this.state.datos.length === 0 ?  <h1> Cargando...</h1>:
@@ -36,6 +39,7 @@ class Toprated extends Component{
                          )
                      )
                 }
+                <Footer/>
             </div>
         )
 
