@@ -1,5 +1,8 @@
-import React from "react"
+import React, {Component} from "react"
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie";
+
+let cookies = new Cookies()
 
 function Header(){
     let existeSession = document.cookie.includes("session=");
@@ -15,12 +18,12 @@ function Header(){
                 <li><Link to="/registro">Crear Cuenta</Link></li>
                 </>
             ) : (
-                <li><Link to="/favoritos">Favoritos</Link></li>
+                <li>{cookies.get("usuario")}<Link to="/favoritos">Favoritos</Link></li>
             )}
         </ul>
 
         <ul className="user">
-            <li>poner el nombre del usuario<img src="./img/imagenes/7.jpeg" alt=""/></li>
+            <li>{this.usuario.gmail}<img src="./img/imagenes/7.jpeg" alt=""/></li>
         </ul>
     </nav>
     );
