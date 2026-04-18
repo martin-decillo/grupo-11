@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-
+import Favoritos from "../Favoritos/Favoritos";
 class Peliculapopular extends Component {
     constructor(props){
         super(props);
@@ -15,6 +15,26 @@ class Peliculapopular extends Component {
              verdescripcion: !this.state.verdescripcion
         });
     }
+    guardarFavorita = () => {
+  let favoritasGuardadas = localStorage.getItem("favoritas");
+  let favoritasParseadas = favoritasGuardadas
+    ? JSON.parse(favoritasGuardadas)
+    : [];
+
+  let pelicula = {
+    id: this.props.id,
+    title: this.props.title,
+    poster_path: this.props.poster_path,
+    overview: this.props.descripcion
+  };
+
+  let existe = favoritasParseadas.some((fav) => fav.id === pelicula.id);
+
+  if (!existe) {
+    favoritasParseadas.push(pelicula);
+    localStorage.setItem("favoritas", JSON.stringify(favoritasParseadas));
+  }
+};
 
 
     render(){
@@ -33,6 +53,7 @@ class Peliculapopular extends Component {
                       <Link to={`/pelicula/${this.props.id}`}>
                         <button>Ir a detalle</button>
                     </Link>
+                    <button onClick={this.guardarFavorita}>Agregar a favoritos ❤️</button>
                 </article>
             </div>
         )

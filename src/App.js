@@ -8,6 +8,7 @@ import Toprated from "./screens/Toprated/Toprated";
 import Todaspopulareas from "./screens/Todaspopulares/Todaspopulares";
 import Todaspopulares from "./screens/Todaspopulares/Todaspopulares";
 import Notfound from "./screens/Notfound/Notfound";
+import Favoritasscreen from "./screens/Favoritasscreen/Favoritasscreen";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Toprated" component = {Toprated}/>
         <Route path="/Todaspopulares" component = {Todaspopulares}/>
         <Route path="*" component={<Notfound/>} />
+        <Route path="/favoritos" component={Favoritasscreen}/>
       </Switch>
     </div>
   );

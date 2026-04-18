@@ -1,50 +1,66 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class Favoritas extends Component(){
-    constructor(props){
-        super(props)
-        let Peliculsfavoritas = localStorage.getItem("Favoritas");
-        let PeliculasParseadas = Peliculsfavoritas ? JSON.parse(datosGuardados) : null;
-        
-        this.state={ "favorita": null}
-    }
-        enviarFormulario(event){
-        event.preventDefault();
-         
-        let favorita = {
-            favorita: this.state.favorita,
-        };
-        
-        localStorage.setItem("favorita", JSON.stringify());
-    }
-      componentDidMount(){
-    const id = this.props.match.params.id;
-
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=830571fa1c832cffccac2021413e6933&language=es-ES`)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ pelicula: data });
-        console.log(data)
-      })
-      .catch(error => console.log(error));
+class Favoritos extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      favoritas: []
+    };
   }
-  render(){
-    return(
-    <section>
-        <Header/>
-        {this.state.favorita === null ? (
-          <h2>Cargando...</h2>
-        ) : (
-          <div>
 
-          </div>
+  componentDidMount() {
+    let favoritasGuardadas = localStorage.getItem("favoritas");
+    let favoritasParseadas = favoritasGuardadas
+      ? JSON.parse(favoritasGuardadas)
+      : [];
+
+    this.setState({
+      favoritas: favoritasParseadas
+    });
+  }
+
+  borrarFavorita(id) {
+    let filtradas = this.state.favoritas.filter(
+      (pelicula) => pelicula.id !== id
+    );
+
+    localStorage.setItem("favoritas", JSON.stringify(filtradas));
+
+    this.setState({
+      favoritas: filtradas
+    });
+  }
+
+  render() {
+    return (
+      <section>
+        {this.state.favoritas.length === 0 ? (
+          <p>No tenés películas favoritas guardadas.</p>
+        ) : (
+          this.state.favoritas.map((pelicula, idx) => (
+            <article key={pelicula.id || idx}>
+              {pelicula.poster_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/w342${pelicula.poster_path}`}
+                  alt={pelicula.title}
+                />
+              ) : null}
+
+              <h3>{pelicula.title}</h3>
+              <p>{pelicula.overview}</p>
+
+              <Link to={`/pelicula/${pelicula.id}`}>Ir al detalle</Link>
+
+              <button onClick={() => this.borrarFavorita(pelicula.id)}>
+                Eliminar de favoritos
+              </button>
+            </article>
+          ))
         )}
-        <Footer/>
       </section>
     );
   }
-
 }
 
-export default favorita
+export default Favoritos;
