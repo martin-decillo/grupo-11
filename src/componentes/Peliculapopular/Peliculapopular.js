@@ -33,6 +33,8 @@ class Peliculapopular extends Component {
                       <Link to={`/pelicula/${this.props.id}`}>
                         <button>Ir a detalle</button>
                     </Link>
+                    <button>Favorita</button>
+
                 </article>
             </div>
         )

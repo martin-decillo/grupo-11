@@ -47,4 +47,4 @@ class Favoritas extends Component(){
 
 }
 
-export default favorita
+export default Favoritas
