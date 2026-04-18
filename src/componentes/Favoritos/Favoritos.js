@@ -46,3 +46,5 @@ class Favoritas extends Component(){
   }
 
 }
+
+export default favorita

@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 let cookies = new Cookies()
 
 function Header(){
-    let existeSession = document.cookie.includes("session=");
+    let existeSession = document.cookie.includes("usuario=");
     return(
         <nav>
         <ul className="main-header">
@@ -18,7 +18,7 @@ function Header(){
                 <li><Link to="/registro">Crear Cuenta</Link></li>
                 </>
             ) : (
-                <li>{}<Link to="/favoritos">Favoritos</Link></li>
+                <li>{}<Link to="/favoritosscreen">Favoritos</Link></li>
             )}
         </ul>
 
