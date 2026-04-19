@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import Favoritos from "../Favoritos/Favoritos";
 class Peliculapopular extends Component {
     constructor(props){
         super(props);
