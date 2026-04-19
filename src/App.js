@@ -8,7 +8,7 @@ import Toprated from "./screens/Toprated/Toprated";
 import Todaspopulareas from "./screens/Todaspopulares/Todaspopulares";
 import Todaspopulares from "./screens/Todaspopulares/Todaspopulares";
 import Notfound from "./screens/Notfound/Notfound";
-import Favoritas from "./screens/Favotitas/Favoritas";
+import Favoritas from "./screens/Favoritas/Favoritas";
 import Formulario from "./componentes/Formulario/Formulario";
 
 

@@ -29,15 +29,18 @@ class Formulario extends Component{
         {this.state.datos.length === 0 ? (
           <h1>Cargando...</h1>
         ) : (
-          this.state.datos.map((pelicula, indice) => (
+          this.state.datos.map((elemento, idx) => (
             <Peliculapopular
-              key={pelicula.id}
-              key={indice}
-              id={pelicula.id}
-              titulo={pelicula.title} 
-              descripcion={pelicula.overview}
+              key={elemento.title + idx}
+              title={elemento.title}
+              language={elemento.original_language}
+              adult={elemento.adult}
+              img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
+              id={elemento.id}
+              descripcion={elemento.overview}
             />
           ))
+          
         )}
       </div>
     )

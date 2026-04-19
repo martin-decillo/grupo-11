@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
+
 class Peliculapopular extends Component {
     constructor(props){
         super(props);
@@ -23,7 +24,7 @@ class Peliculapopular extends Component {
   let pelicula = {
     id: this.props.id,
     title: this.props.title,
-    poster_path: this.props.poster_path,
+    img: this.props.img,
     overview: this.props.descripcion
   };
 
@@ -39,23 +40,24 @@ class Peliculapopular extends Component {
     render(){
         return(
             <div className="Pelicula">
-                <article className="Peliculas-card">
+              <article className="Peliculas-card">
                     <img src = {this.props.img}/>
                     <h2>{this.props.title}</h2>
                     <div>
                         {this.state.verdescripcion && <p>{this.props.descripcion} 
                             Idioma: {this.props.language}</p>}
                      </div>
-                      <button onClick={() => this.cambiarEstado()}> 
+                      <button onClick={() => this.cambiarEstado()}>
                         {this.state.verdescripcion ? "- info" : "+ info"}
                       </button>
-                      <Link to={`/pelicula/${this.props.id}`}>
+                    <Link to={`/pelicula/${this.props.id}`}>
                         <button>Ir a detalle</button>
                     </Link>
                     <button onClick={this.guardarFavorita}>Agregar a favoritos ❤️</button>
-                </article>
+              </article>
             </div>
         )
+
     }
 
 

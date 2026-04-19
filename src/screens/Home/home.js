@@ -10,11 +10,11 @@ import ResultadoBusqueda from "../Resultado/ResultadoBusqueda";
 
 function Home() {
   return (
-   <div className="Home">
-     <Header />
-     <div>
-       <ResultadoBusqueda />
-     </div>
+    <div className="Home">
+      <Header />
+      <div>
+        <ResultadoBusqueda />
+      </div>
      <Cartelera />
      <Peliculaspopulares />
      <Footer />

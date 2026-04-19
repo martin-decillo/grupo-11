@@ -34,16 +34,14 @@ render() {
           <h1>No tenés películas favoritas guardadas</h1>
         ) : (
           this.state.favoritas.map((elemento, idx) => (
-            <Peliculapopular
-              key={elemento.id + idx}
-              title={elemento.title}
-              language={elemento.original_language}
-              adult={elemento.adult}
-              img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
-              poster_path={elemento.poster_path}
-              id={elemento.id}
-              descripcion={elemento.overview}
-            />
+      <Peliculapopular
+        key={elemento.id}
+        title={elemento.title}
+        img={elemento.img}
+        id={elemento.id}
+        descripcion={elemento.overview}
+        language={elemento.original_language}
+        />
           ))
         )
       }
