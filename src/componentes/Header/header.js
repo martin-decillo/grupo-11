@@ -18,7 +18,7 @@ function Header(){
                 <li><Link to="/registro">Crear Cuenta</Link></li>
                 </>
             ) : (
-                <li>{}<Link to="/favoritosscreen">Favoritos</Link></li>
+                <li>{}<Link to="/Favoritas">Favoritos</Link></li>
             )}
         </ul>
 
