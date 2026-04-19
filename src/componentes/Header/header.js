@@ -10,15 +10,15 @@ function Header(){
         <nav>
         <ul className="main-header">
             <li><Link to="/">Home</Link></li>
-            <Link to={`/Todaspopulares`}><button>Populares</button></Link>
-            <Link to={`/Toprated`}><button>Mejor valoradas</button></Link>
+            <li><Link to={`/Todaspopulares`}><button>Populares</button></Link></li>
+            <li><Link to={`/Toprated`}><button>Mejor valoradas</button></Link></li>
             {!existeSession ? (
-                <>
-                <li><Link to="/Loginscreen">Login</Link></li>
-                <li><Link to="/registro">Crear Cuenta</Link></li>
-                </>
+                <li className="auth">
+                  <Link to="/Loginscreen">Login</Link>
+                  <Link to="/registro">Crear Cuenta</Link>
+                </li>
             ) : (
-                <li>{}<Link to="/Favoritas">Favoritos</Link></li>
+                <li className="auth"><Link to="/Favoritas">Favoritos</Link></li>
             )}
         </ul>
 
