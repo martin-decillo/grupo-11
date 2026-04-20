@@ -12,7 +12,7 @@ class BuscadorPeliculas extends Component {
   evitarEnvio(event){
     event.preventDefault();
 
-    this.props.history.push('/resultados/' + encodeURIComponent(this.state.buscador));
+    this.props.history.push('/Formulario/' + encodeURIComponent(this.state.buscador));
   }
 
   actualizarTermino(event){

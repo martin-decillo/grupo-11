@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Peliculapopular from '../Peliculapopular/Peliculapopular';
 import { withRouter } from 'react-router-dom';
+import Header from '../Header/Header';
 
 class Formulario extends Component{
   constructor(props){
@@ -25,6 +26,7 @@ class Formulario extends Component{
     return (
 
       <div className="ResultadosBusqueda">
+        <Header/>
         <h3>Resultados de la búsqueda</h3>
         {this.state.datos.length === 0 ? (
           <h1>Cargando...</h1>
