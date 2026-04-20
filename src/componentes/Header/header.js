@@ -13,6 +13,7 @@ function Header(){
             <li><Link to="/"><button>Home</button></Link></li>
             <Link to={`/Todaspopulares`}><button>Populares</button></Link>
             <Link to={`/Toprated`}><button>Mejor valoradas</button></Link>
+            <Link to={`/TodasSeries`}><button>Series</button></Link>
             {!existeSession ? (
                 <li className="auth">
                   <Link to="/Loginscreen"><button>Login</button></Link>
