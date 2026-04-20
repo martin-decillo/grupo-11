@@ -14,7 +14,7 @@ class Formulario extends Component{
  componentDidMount(){
 
     const buscador = this.props.match.params.busqueda;
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${buscador}&api_key=0df8d28c1011b391dfb589da529c8b22`)
+    fetch(`https://api.themoviedb.org/3/search/movie?query=${buscador}&api_key=830571fa1c832cffccac2021413e6933`)
       .then(response => response.json())
       .then(data => this.setState({ datos: data.results ? data.results : [] }))
       .catch(error => console.log(error));

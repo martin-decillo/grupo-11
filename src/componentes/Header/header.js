@@ -7,8 +7,8 @@ let cookies = new Cookies()
 function Header(){
     let existeSession = document.cookie.includes("usuario=");
     return(
-        <nav>
-        <ul className="main-header">
+    <nav>
+        <ul>
             <li><Link to="/">Home</Link></li>
             <Link to={`/Todaspopulares`}><button>Populares</button></Link>
             <Link to={`/Toprated`}><button>Mejor valoradas</button></Link>
