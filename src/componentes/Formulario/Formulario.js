@@ -1,64 +1,53 @@
-import React, { Component } from 'react'
-import Peliculapopular from '../Peliculapopular/Peliculapopular';
-import { withRouter } from 'react-router-dom';
-import Header from '../Header/Header';
-import Serie from '../Serie/Serie';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-class Formulario extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      datos: []
+class Formulario extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            buscador: "",
+            tipo: "movie"
+        }
     }
-  }
 
+    evitarEnvio(event){
+        event.preventDefault();
+        this.props.history.push(
+            "/ResultadoBusqueda/" + this.state.tipo + "/" + this.state.buscador
+        );
+    }
 
- componentDidMount(){
-    const tipo = this.props.match.params.tipo;
-    const buscador = this.props.match.params.busqueda;
+    actualizarTermino(event){
+        this.setState({
+            buscador: event.target.value
+        });
+    }
 
-    fetch(`https://api.themoviedb.org/3/search/${tipo}?query=${buscador}&api_key=830571fa1c832cffccac2021413e6933`)
-      .then(response => response.json())
-      .then(data => this.setState({ datos: data.results ? data.results : [] }))
-      .catch(error => console.log(error));
-  }
+    controlarTipo(event){
+        this.setState({
+            tipo: event.target.value
+        });
+    }
 
+    render(){
+        return(
+            <>
+                <form className="form" onSubmit={(event) => this.evitarEnvio(event)}>
+                    <select onChange={(event) => this.controlarTipo(event)} value={this.state.tipo}>
+                        <option value="movie">Peliculas</option>
+                        <option value="tv">Series</option>
+                    </select>
 
-  render(){
-    const tipo = this.props.match.params.tipo;
-    return (
-
-      <div className="ResultadosBusqueda">
-        <Header/>
-        <h3>Resultados de la búsqueda</h3>
-        {this.state.datos.length === 0 ? (
-          <h1>Cargando...</h1>
-        ) : (
-       this.state.datos.map((elemento, idx) => (
-  tipo === "movie" ? 
-    <Peliculapopular
-      key={elemento.id + idx}
-      title={elemento.title}
-      language={elemento.original_language}
-      img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
-      id={elemento.id}
-      descripcion={elemento.overview}
-    />
-  :
-    <Serie
-      key={elemento.id + idx}
-      title={elemento.name}
-      language={elemento.original_language}
-      img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
-      id={elemento.id}
-      descripcion={elemento.overview}
-    />
-))
-          
-        )}
-      </div>
-    )
-  }
+                    <input
+                        type="text"
+                        onChange={(event) => this.actualizarTermino(event)}
+                        value={this.state.buscador}
+                        placeholder="Buscar película o serie..."
+                    />
+                </form>
+            </>
+        )
+    }
 }
 
-export default withRouter(Formulario)
+export default withRouter(Formulario);

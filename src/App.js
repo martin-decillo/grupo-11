@@ -9,6 +9,7 @@ import Todaspopulares from "./screens/Todaspopulares/Todaspopulares";
 import Notfound from "./screens/Notfound/Notfound";
 import Favoritas from "./screens/Favoritas/Favoritas";
 import Formulario from "./componentes/Formulario/Formulario";
+import ResultadoBusqueda from "./screens/Resultado/ResultadoBusqueda";
 import SerieP from "./screens/SerieP/SerieP";
 import TodasSeries from "./screens/TodasSeries/TodasSeries";
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="/Toprated" component={Toprated}/>
         <Route path="/Todaspopulares" component={Todaspopulares}/>
         <Route path="/Favoritas" component={Favoritas}/>
-        <Route path="/Formulario/:tipo/:busqueda" component={Formulario}/>
+        <Route path="/ResultadoBusqueda/:tipo/:busqueda" component={ResultadoBusqueda}/>
         <Route path="/TodasSeries" component={TodasSeries}/>
         <Route path="/SerieP/:id" component={SerieP}/>
         <Route path="*" component={Notfound}/>
