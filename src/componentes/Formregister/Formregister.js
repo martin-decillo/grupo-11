@@ -6,7 +6,7 @@ class Formregister extends Component {
         super(props);
 
         let datosGuardados = localStorage.getItem("usuario");
-        let datosParseados = datosGuardados ? JSON.parse(datosGuardados) : null;
+        let datosParseados = datosGuardados ? JSON.parse(datosGuardados) : [];
 
         this.state = {
             nombre: datosParseados ? datosParseados.nombre : "",
@@ -19,7 +19,7 @@ class Formregister extends Component {
     event.preventDefault();
 
     let datosGuardados = localStorage.getItem("usuario");
-    let datosParseados = datosGuardados ? JSON.parse(datosGuardados) : null;
+    let datosParseados = datosGuardados ? JSON.parse(datosGuardados) : [];
 
     if(this.state.contraseña.length < 6){
         alert("La contraseña debe tener al menos 6 caracteres");
