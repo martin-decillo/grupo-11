@@ -21,6 +21,32 @@ class Pelicula extends Component {
       })
       .catch(error => console.log(error));
   }
+  guardarFavorita = () => {
+  let favoritasGuardadas = localStorage.getItem("favoritas");
+  let favoritasParseadas = favoritasGuardadas
+    ? JSON.parse(favoritasGuardadas)
+    : [];
+
+  let pelicula = {
+    id: this.props.id,
+    title: this.props.title,
+    img: this.props.img,
+    overview: this.props.descripcion
+  };
+
+  let existe = favoritasParseadas.some((fav) => fav.id === pelicula.id);
+
+  if (!existe) {
+    favoritasParseadas.push(pelicula);
+    localStorage.setItem("favoritas", JSON.stringify(favoritasParseadas));
+  }
+};
+
+mostrarFavoritos = () => {
+    let existeSession = document.cookie.includes("usuario=");
+
+    return existeSession;
+}
 
   render(){
     return(
@@ -37,6 +63,13 @@ class Pelicula extends Component {
             <p>Fecha de estreno: {this.state.pelicula.release_date}</p>
             <p>Género: {this.state.pelicula.genres.map(genre => genre.name).join(", ")}</p>
             <p>calificacion: {this.state.pelicula.vote_average}</p>
+            {
+                  this.mostrarFavoritos() ? 
+                  <button onClick={this.guardarFavorita}>
+                      Agregar a favoritos ❤️
+                  </button>
+                  : null
+                  }
           </div>
         )}
         <Footer/>
