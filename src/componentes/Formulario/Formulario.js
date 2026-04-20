@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Peliculapopular from '../Peliculapopular/Peliculapopular';
 import { withRouter } from 'react-router-dom';
 import Header from '../Header/Header';
+import Serie from '../Serie/Serie';
 
 class Formulario extends Component{
   constructor(props){
@@ -24,6 +25,7 @@ class Formulario extends Component{
 
 
   render(){
+    const tipo = this.props.match.params.tipo;
     return (
 
       <div className="ResultadosBusqueda">
@@ -32,17 +34,26 @@ class Formulario extends Component{
         {this.state.datos.length === 0 ? (
           <h1>Cargando...</h1>
         ) : (
-          this.state.datos.map((elemento, idx) => (
-            <Peliculapopular
-              key={elemento.id + idx}
-              title={elemento.title || elemento.name}
-              language={elemento.original_language}
-              adult={elemento.adult}
-              img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
-              id={elemento.id}
-              descripcion={elemento.overview}
-            />
-          ))
+       this.state.datos.map((elemento, idx) => (
+  tipo === "movie" ? 
+    <Peliculapopular
+      key={elemento.id + idx}
+      title={elemento.title}
+      language={elemento.original_language}
+      img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
+      id={elemento.id}
+      descripcion={elemento.overview}
+    />
+  :
+    <Serie
+      key={elemento.id + idx}
+      title={elemento.name}
+      language={elemento.original_language}
+      img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}
+      id={elemento.id}
+      descripcion={elemento.overview}
+    />
+))
           
         )}
       </div>
