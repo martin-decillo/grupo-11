@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import Formulario from "../../componentes/Formulario/Formulario";
-import ResultadoBusqueda from "../resultado/ResultadoBusqueda";
+import ResultadoBusqueda from "../Resultado/ResultadoBusqueda";
 
 function Home() {
   return (

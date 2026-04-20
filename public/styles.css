@@ -1,13 +1,18 @@
-/* ---------- GENERAL ---------- */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
+  background-color: #141414;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
@@ -15,287 +20,171 @@ img {
   display: block;
 }
 
-a {
-  text-decoration: none;
+button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* ---------- CONTENEDOR PRINCIPAL ---------- */
-.Home {
-  width: 90%;
-  max-width: 1400px;
-  margin: 0 auto;
+button:hover {
+  background-color: #b20710;
 }
 
-/* ---------- TITULO ---------- */
-h1 {
-  margin-top: 25px;
-  margin-bottom: 20px;
-  font-size: 48px;
-  font-weight: 700;
-}
-
-/* ---------- NAV ---------- */
 nav {
-  margin-top: 10px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid #dee2e6;
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: #eee;
-  border-radius: 4px;
-  margin: 0 !important;
-}
-
-nav ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
+  background-color: #111;
+  padding: 15px 30px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
-nav ul li {
-  margin-right: 20px;
-}
-
-nav ul li a {
-  display: inline-block;
-  padding: 12px 4px;
-  color: #007bff;
-  font-size: 16px;
-}
-
-nav ul li a:hover {
-  color: #0056b3;
-}
-
-.nav a {
-  color: #444;
-  text-decoration: none;
-}
-
-.nav a:hover {
-  font-weight: bold;
-}
-
-
-
-
-.main-header .auth {
-  margin-left: auto;
+nav ul {
+  list-style: none;
   display: flex;
-  gap: 5px;
+  gap: 15px;
   align-items: center;
 }
 
-/* ---------- BUSCADOR  ---------- */
-
-.buscador-form, .filter-form {
-    padding: .5rem 0;
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    column-gap: 5px;
-}
-.filter-form {
-    grid-template-columns: 1fr;
-}
-.buscador-form .btn-sm{
-    line-height: 1;
-    font-size: 0.9rem;
-}
-.buscador-form input,
-.filter-form input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding-top: 3px;
-    vertical-align: middle;
-    line-height: 1;
-    font-size: 1rem;
-    padding-bottom: 4px;
-}
-.filter-form input {
-    line-height: 1.5;
+nav li {
+  list-style: none;
 }
 
+nav a {
+  color: white;
+  font-weight: bold;
+}
 
-  
-
-/* ---------- USER ---------- */
 .user {
   margin-left: auto;
-  list-style: none;
-  padding-left: 0;
 }
 
 .user li {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #212529;
-  font-weight: 500;
 }
 
 .user img {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ced4da;
 }
 
-/* ---------- FORMULARIO ---------- */
-.Formulario {
-  margin-bottom: 30px;
-}
-
-.Formulario form {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.Formulario input {
-  width: 320px;
-  padding: 12px 14px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: #fff;
-}
-
-.Formulario input:focus {
-  outline: none;
-  border-color: #80bdff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
-}
-
-.Formulario button {
-  padding: 11px 18px;
-  border: 1px solid #28a745;
-  background-color: #28a745;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.Formulario button:hover {
-  background-color: #218838;
-}
-
-/* ---------- TITULO SECCION ---------- */
-.Peliculaspopulares h1 {
-  width: 100%;
-  margin-top: 25px;
-  margin-bottom: 20px;
-  padding: 16px 20px;
-  border-radius: 4px;
-  font-size: 24px;
-  font-weight: 500;
-  background-color: #cfe2ff;
-  color: #084298;
-  border: 1px solid #b6d4fe;
-}
-
-/* ---------- CONTENEDOR DE CARDS ---------- */
 .Peliculaspopulares {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-bottom: 30px;
+  width: 90%;
+  margin: 30px auto;
+  text-align: center;
 }
 
-/* ---------- CARD INDIVIDUAL ---------- */
+.Peliculaspopulares h1,
+.Peliculaspopulares h2,
+.Peliculaspopulares h3 {
+  margin-bottom: 20px;
+}
+
 .Pelicula {
-  width: calc(25% - 18px);
-  min-width: 260px;
+  display: inline-block;
+  width: 250px;
+  margin: 15px;
+  vertical-align: top;
 }
 
 .Peliculas-card {
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: 6px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  padding: 15px;
+  min-height: 580px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+}
+
+.Peliculas-card:hover {
+  transform: translateY(-5px);
 }
 
 .Peliculas-card img {
   width: 100%;
-  height: 420px;
+  height: 360px;
   object-fit: cover;
-  background-color: #e9ecef;
+  border-radius: 10px;
+  margin-bottom: 12px;
 }
 
 .Peliculas-card h2 {
-  font-size: 18px;
-  margin: 16px 16px 10px 16px;
-  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+  min-height: 50px;
 }
 
 .Peliculas-card p {
   font-size: 14px;
-  line-height: 1.5;
-  color: #495057;
-  margin: 0 16px 14px 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
 .Peliculas-card button {
-  margin: auto 16px 16px 16px;
-  padding: 10px 12px;
-  border-radius: 4px;
-  font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.Peliculas-card a button {
+  width: 100%;
+}
+
+form {
+  width: 400px;
+  max-width: 90%;
+  margin: 30px auto;
+  background-color: #1f1f1f;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+form input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+}
+
+form button {
+  width: 100%;
+}
+
+section {
+  width: 90%;
+  margin: 30px auto;
+}
+
+section div img {
+  width: 300px;
+  max-width: 100%;
+  margin: 0 auto 20px auto;
+  border-radius: 12px;
+}
+
+section div h1 {
   text-align: center;
-  background-color: #007bff;
-  color: white;
-  border: 1px solid #007bff;
-  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-.Peliculas-card button:hover {
-  background-color: #0069d9;
+section div p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  text-align: center;
 }
 
-/* ---------- FOOTER ---------- */
-.Footer,
 footer {
-  margin-top: 30px;
-  padding: 16px;
+  background-color: #111;
+  color: white;
   text-align: center;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 1100px) {
-  .Pelicula {
-    width: calc(33.333% - 16px);
-  }
-}
-
-@media (max-width: 800px) {
-  .Pelicula {
-    width: calc(50% - 12px);
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 520px) {
-  .Pelicula {
-    width: 100%;
-  }
-
-  .Formulario form {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .Formulario input {
-    width: 100%;
-  }
-}
+  padding: 20px;
+  margin-top: 40px;
