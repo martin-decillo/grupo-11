@@ -7,16 +7,18 @@ import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
 import Formulario from "../../componentes/Formulario/Formulario";
 import ResultadoBusqueda from "../Resultado/ResultadoBusqueda";
+import Series from "../../componentes/Series/Series";
 
 function Home() {
   return (
     <div className="Home">
       <Header />
       <div>
-        <ResultadoBusqueda />
+      <ResultadoBusqueda />
       </div>
      <Cartelera />
      <Peliculaspopulares />
+     <Series/>
      <Footer />
    </div>
   );
