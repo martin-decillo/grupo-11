@@ -15,20 +15,31 @@ class Formregister extends Component {
         };
     }
 
-    enviarFormulario(event){
-        event.preventDefault();
+   enviarFormulario(event){
+    event.preventDefault();
 
-        let usuario = {
-            nombre: this.state.nombre,
-            gmail: this.state.gmail,
-            contraseña: this.state.contraseña
-        };
+    let datosGuardados = localStorage.getItem("usuario");
+    let datosParseados = datosGuardados ? JSON.parse(datosGuardados) : null;
 
-        localStorage.setItem("usuario", JSON.stringify(usuario));
+    if(this.state.contraseña.length < 6){
+        alert("La contraseña debe tener al menos 6 caracteres");
+    } else {
+        if(datosParseados){
+            if(datosParseados.gmail === this.state.gmail){
+                alert("Ese mail ya está en uso");
+            } else {
+                let usuario = {
+                    nombre: this.state.nombre,
+                    gmail: this.state.gmail,
+                    contraseña: this.state.contraseña
+                };
 
-        this.props.history.push("/loginscreen");
+                localStorage.setItem("usuario", JSON.stringify(usuario));
+                this.props.history.push("/loginscreen");
+            }
+        } 
     }
-
+}
     controlarCambios(event){
         this.setState({
             [event.target.name]: event.target.value

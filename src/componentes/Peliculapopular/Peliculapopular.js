@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 
+
+
 class Peliculapopular extends Component {
     constructor(props){
         super(props);
@@ -8,6 +10,8 @@ class Peliculapopular extends Component {
             verdescripcion : false
         }
     }
+    
+    
 
     //cambio de estado
     cambiarEstado = () => {
@@ -36,6 +40,12 @@ class Peliculapopular extends Component {
   }
 };
 
+mostrarFavoritos = () => {
+    let existeSession = document.cookie.includes("usuario=");
+
+    return existeSession;
+}
+
 
     render(){
         return(
@@ -53,7 +63,13 @@ class Peliculapopular extends Component {
                     <Link to={`/pelicula/${this.props.id}`}>
                         <button>Ir a detalle</button>
                     </Link>
-                    <button onClick={this.guardarFavorita}>Agregar a favoritos ❤️</button>
+                    {
+                  this.mostrarFavoritos() ? 
+                  <button onClick={this.guardarFavorita}>
+                      Agregar a favoritos ❤️
+                  </button>
+                  : null
+                  }
               </article>
             </div>
         )
