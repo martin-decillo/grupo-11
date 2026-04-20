@@ -190,6 +190,13 @@ footer {
   margin-top: 40px;
 }
 
+
+.auth {
+  margin-left: auto; 
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
 /* ---------- MOBILE (celulares) ---------- */
 @media (max-width: 520px) {
   

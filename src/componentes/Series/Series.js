@@ -21,7 +21,7 @@ class Series extends Component{
 
     render(){
         return(
-            <div className="Series">
+            <div className="Peliculaspopulares">
                 <h3>Series</h3>
                 <Link to={`/TodasSeries`}><button>Ver todas</button></Link>
                 {

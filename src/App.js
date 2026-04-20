@@ -23,7 +23,7 @@ function App() {
         <Route path="/Toprated" component={Toprated}/>
         <Route path="/Todaspopulares" component={Todaspopulares}/>
         <Route path="/Favoritas" component={Favoritas}/>
-        <Route path="/Formulario/:busqueda" component={Formulario}/>
+        <Route path="/Formulario/:tipo/:busqueda" component={Formulario}/>
         <Route path="/TodasSeries" component={TodasSeries}/>
         <Route path="/SerieP/:id" component={SerieP}/>
         <Route path="*" component={Notfound}/>

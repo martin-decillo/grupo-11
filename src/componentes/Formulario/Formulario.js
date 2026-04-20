@@ -13,9 +13,10 @@ class Formulario extends Component{
 
 
  componentDidMount(){
-
+    const tipo = this.props.match.params.tipo;
     const buscador = this.props.match.params.busqueda;
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${buscador}&api_key=830571fa1c832cffccac2021413e6933`)
+
+    fetch(`https://api.themoviedb.org/3/search/${tipo}?query=${buscador}&api_key=830571fa1c832cffccac2021413e6933`)
       .then(response => response.json())
       .then(data => this.setState({ datos: data.results ? data.results : [] }))
       .catch(error => console.log(error));
@@ -33,8 +34,8 @@ class Formulario extends Component{
         ) : (
           this.state.datos.map((elemento, idx) => (
             <Peliculapopular
-              key={elemento.title + idx}
-              title={elemento.title}
+              key={elemento.id + idx}
+              title={elemento.title || elemento.name}
               language={elemento.original_language}
               adult={elemento.adult}
               img={`https://image.tmdb.org/t/p/w500${elemento.poster_path}`}

@@ -5,24 +5,37 @@ class BuscadorPeliculas extends Component {
   constructor(props){
     super(props);
     this.state = {
-      buscador: ''
+      buscador: '',
+      tipo: 'movie'
     }
   }
 
   evitarEnvio(event){
     event.preventDefault();
 
-    this.props.history.push('/Formulario/' + encodeURIComponent(this.state.buscador));
+   this.props.history.push(
+  '/Formulario/' + this.state.tipo + '/' + this.state.buscador);
   }
 
   actualizarTermino(event){
     this.setState({ buscador: event.target.value });
   }
 
+  controlarTipo(event){
+  this.setState({
+    tipo: event.target.value
+  });
+}
+
   render(){
     return (
       <>
+          
          <form className="form" onSubmit={(event) => this.evitarEnvio(event)}>
+          <select onChange={(event) => this.controlarTipo(event)} value={this.state.tipo}>
+              <option value="movie">Peliculas</option>
+              <option value="tv">Series</option>
+          </select>
                     <input type="text" onChange={(event) => this.actualizarTermino(event)} value={this.state.buscador} placeholder="Buscar película o serie..."/>
                 </form>
       </>
