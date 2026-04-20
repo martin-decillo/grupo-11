@@ -1,83 +1,139 @@
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
 
-
-
 class Peliculapopular extends Component {
     constructor(props){
         super(props);
         this.state = {
-            verdescripcion : false
+            verdescripcion: false,
+            esFavorita: false
         }
     }
-    
-    
 
-    //cambio de estado
+    componentDidMount(){
+        let favoritasGuardadas = localStorage.getItem("favoritas");
+        let favoritasParseadas = favoritasGuardadas
+            ? JSON.parse(favoritasGuardadas)
+            : [];
+
+        let existe = false;
+
+        for(let i = 0; i < favoritasParseadas.length; i++){
+            if(favoritasParseadas[i].id === this.props.id){
+                existe = true;
+            }
+        }
+
+        this.setState({
+            esFavorita: existe
+        });
+    }
+
     cambiarEstado = () => {
         this.setState({
              verdescripcion: !this.state.verdescripcion
         });
     }
+
     guardarFavorita = () => {
-  let favoritasGuardadas = localStorage.getItem("favoritas");
-  let favoritasParseadas = favoritasGuardadas
-    ? JSON.parse(favoritasGuardadas)
-    : [];
+        let favoritasGuardadas = localStorage.getItem("favoritas");
+        let favoritasParseadas = favoritasGuardadas
+            ? JSON.parse(favoritasGuardadas)
+            : [];
 
-  let pelicula = {
-    id: this.props.id,
-    title: this.props.title,
-    img: this.props.img,
-    overview: this.props.descripcion
-  };
+        let pelicula = {
+            id: this.props.id,
+            title: this.props.title,
+            img: this.props.img,
+            overview: this.props.descripcion
+        };
 
-  let existe = favoritasParseadas.some((fav) => fav.id === pelicula.id);
+        let existe = false;
 
-  if (!existe) {
-    favoritasParseadas.push(pelicula);
-    localStorage.setItem("favoritas", JSON.stringify(favoritasParseadas));
-  }
-};
+        for(let i = 0; i < favoritasParseadas.length; i++){
+            if(favoritasParseadas[i].id === pelicula.id){
+                existe = true;
+            }
+        }
 
-mostrarFavoritos = () => {
-    let existeSession = document.cookie.includes("usuario=");
+        if(!existe){
+            favoritasParseadas.push(pelicula);
+            localStorage.setItem("favoritas", JSON.stringify(favoritasParseadas));
+            this.setState({
+                esFavorita: true
+            });
+        }
+    };
 
-    return existeSession;
-}
+    sacarFavorita = () => {
+        let favoritasGuardadas = localStorage.getItem("favoritas");
+        let favoritasParseadas = favoritasGuardadas
+            ? JSON.parse(favoritasGuardadas)
+            : [];
 
+        let nuevoArray = [];
+
+        for(let i = 0; i < favoritasParseadas.length; i++){
+            if(favoritasParseadas[i].id !== this.props.id){
+                nuevoArray.push(favoritasParseadas[i]);
+            }
+        }
+
+        localStorage.setItem("favoritas", JSON.stringify(nuevoArray));
+
+        this.setState({
+            esFavorita: false
+        });
+    }
+
+    mostrarFavoritos = () => {
+        let existeSession = document.cookie.includes("usuario=");
+        return existeSession;
+    }
 
     render(){
         return(
             <div className="Pelicula">
-              <article className="Peliculas-card">
-                    <img src = {this.props.img}/>
+                <article className="Peliculas-card">
+                    <img src={this.props.img} alt={this.props.title}/>
                     <h2>{this.props.title}</h2>
+
                     <div>
-                        {this.state.verdescripcion && <p>{this.props.descripcion} 
-                            Idioma: {this.props.language}</p>}
-                     </div>
-                      <button onClick={() => this.cambiarEstado()}>
+                        {
+                            this.state.verdescripcion ?
+                            <p>{this.props.descripcion} Idioma: {this.props.language}</p>
+                            :
+                            null
+                        }
+                    </div>
+
+                    <button onClick={this.cambiarEstado}>
                         {this.state.verdescripcion ? "- info" : "+ info"}
-                      </button>
+                    </button>
+
                     <Link to={`/pelicula/${this.props.id}`}>
                         <button>Ir a detalle</button>
                     </Link>
+
                     {
-                  this.mostrarFavoritos() ? 
-                  <button onClick={this.guardarFavorita}>
-                      Agregar a favoritos ❤️
-                  </button>
-                  : null
-                  }
-              </article>
+                        this.mostrarFavoritos() ?
+                            (
+                                this.state.esFavorita ?
+                                <button onClick={this.sacarFavorita}>
+                                    Sacar de favoritos 💔
+                                </button>
+                                :
+                                <button onClick={this.guardarFavorita}>
+                                    Agregar a favoritos ❤️
+                                </button>
+                            )
+                        :
+                        null
+                    }
+                </article>
             </div>
         )
-
     }
-
-
 }
-
 
 export default Peliculapopular;
